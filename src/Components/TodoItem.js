@@ -1,13 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class TodoItem extends Component {
-  render() {
-    return (
-      <li className="Todo">
-        <strong>{this.props.todo.title}</strong>
-      </li>
-    );
-  }
-}
-
+const TodoItem = ({ todo }) => (
+  <li className="Todo">
+    <strong>{todo.title}</strong>
+  </li>
+);
 export default TodoItem;
