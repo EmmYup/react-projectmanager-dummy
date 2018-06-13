@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import uuid from 'uuid/v4';
+import axios from 'axios';
 import Projects from './Components/Projects';
 import AddProject from './Components/AddProject';
+import Todos from './Components/Todos';
 import './App.css';
 
 class App extends Component {
@@ -9,10 +11,16 @@ class App extends Component {
     super();
     this.state = {
       projects: [],
+      todos: [],
     };
   }
 
-  getTodos() {}
+  async getTodos() {
+    const { data: todos } = await axios.get(
+      'https://jsonplaceholder.typicode.com/todos'
+    );
+    this.setState({ todos });
+  }
 
   getProjects() {
     this.setState({
@@ -66,6 +74,8 @@ class App extends Component {
           projects={this.state.projects}
           onDelete={this.handleDeleteProject.bind(this)}
         />
+        <hr />
+        <Todos todos={this.state.todos} />
       </div>
     );
   }
