@@ -57,13 +57,13 @@ class App extends Component {
   handleAddProject(project) {
     let projects = this.state.projects;
     projects.push(project);
-    this.setState({ projects: projects });
+    this.setState({ projects });
   }
 
   handleDeleteProject(id) {
     let projects = this.state.projects;
     projects.splice(projects.findIndex(project => project.id === id), 1);
-    this.setState({ projects: projects });
+    this.setState({ projects });
   }
 
   render() {
