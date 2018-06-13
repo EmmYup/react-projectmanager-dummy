@@ -8,7 +8,12 @@ class Projects extends Component {
           <ProjectItem key={project.title} project={project} />
         ))
       : '';
-    return <div className="Projects">{projectItems}</div>;
+    return (
+      <div className="Projects">
+        <h3>Lastest Projects</h3>
+        {projectItems}
+      </div>
+    );
   }
 }
 
