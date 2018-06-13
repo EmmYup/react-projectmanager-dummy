@@ -11,7 +11,10 @@ class App extends Component {
       projects: [],
     };
   }
-  componentWillMount() {
+
+  getTodos() {}
+
+  getProjects() {
     this.setState({
       projects: [
         {
@@ -32,6 +35,15 @@ class App extends Component {
         },
       ],
     });
+  }
+
+  componentWillMount() {
+    this.getProjects();
+    this.getTodos();
+  }
+
+  componentDidMount() {
+    this.getTodos();
   }
 
   handleAddProject(project) {
